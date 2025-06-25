@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liver Cirrhosis Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Liver Cirrhosis Prediction</h2>
+        <form method="post" action="/predict">
+            <label>Age</label>
+            <input type="number" name="Age" required>
+
+            <label>Gender (1=Male, 0=Female)</label>
+            <input type="number" name="Gender" required>
+
+            <label>Total Bilirubin</label>
+            <input type="number" step="any" name="Total_Bilirubin" required>
+
+            <label>Direct Bilirubin</label>
+            <input type="number" step="any" name="Direct_Bilirubin" required>
+
+            <label>Alkaline Phosphotase</label>
+            <input type="number" name="Alkaline_Phosphotase" required>
+
+            <label>Alamine Aminotransferase</label>
+            <input type="number" name="Alamine_Aminotransferase" required>
+
+            <label>Aspartate Aminotransferase</label>
+            <input type="number" name="Aspartate_Aminotransferase" required>
+
+            <label>Total Proteins</label>
+            <input type="number" step="any" name="Total_Proteins" required>
+
+            <label>Albumin</label>
+            <input type="number" step="any" name="Albumin" required>
+
+            <label>Albumin and Globulin Ratio</label>
+            <input type="number" step="any" name="Albumin_and_Globulin_Ratio" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            {{ prediction }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
