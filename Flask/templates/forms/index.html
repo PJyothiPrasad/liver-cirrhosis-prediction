@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liver Cirrhosis Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div style="background: url('/assets/image/liver_cirrhosis_prediction.jpg') no-repeat center center fixed; background-size: cover; padding: 20px;">
+    <h1>Liver Cirrhosis Prediction</h1>
+
+    <div class="form-container">
+        <form method="POST" action="/predict">
+
+            <div class="form-group">
+                <label>Alcohol Consumption Duration (years):</label><br>
+                <input type="text" name="Duration_of_alcohol_consumptionyears" placeholder="e.g. 5" required>
+            </div>
+
+            <div class="form-group">
+                <label>Total Bilirubin (mg/dl):</label><br>
+                <input type="text" name="Total_Bilirubin_mgdl" placeholder="e.g. 1.8" required>
+            </div>
+
+            <div class="form-group">
+                <label>RBC Count (million cells/µL):</label><br>
+                <input type="text" name="RBC_million_cellsmicroliter" placeholder="e.g. 4.5" required>
+            </div>
+
+            <div class="form-group">
+                <label>USG Abdomen: Diffuse Liver? (1 for Yes, 0 for No):</label><br>
+                <input type="text" name="USG_Abdomen_diffuse_liver_or_not" placeholder="0 or 1" required>
+            </div>
+
+            <div class="form-group">
+                <label>MCHC (g/dl):</label><br>
+                <input type="text" name="MCHC_gramsdeciliter" placeholder="e.g. 33.0" required>
+            </div>
+
+            <div class="form-group">
+                <label>Direct Bilirubin (mg/dl):</label><br>
+                <input type="text" name="Direct_mgdl" placeholder="e.g. 0.6" required>
+            </div>
+
+            <div class="form-group">
+                <label>ALP (U/L):</label><br>
+                <input type="text" name="ALPhosphatase_UL" placeholder="e.g. 120" required>
+            </div>
+
+            <div class="form-group">
+                <label>Platelet Count (lakhs/mm³):</label><br>
+                <input type="text" name="Platelet_Count_lakhsmm" placeholder="e.g. 2.5" required>
+            </div>
+
+            <div class="form-group">
+                <label>Lymphocytes (%):</label><br>
+                <input type="text" name="Lymphocytes_" placeholder="e.g. 30" required>
+            </div>
+
+            <div class="form-group">
+                <label>Albumin/Globulin Ratio:</label><br>
+                <input type="text" name="AG_Ratio" placeholder="e.g. 1.2" required>
+            </div>
+
+            <div class="form-group">
+                <label>SGOT (U/L):</label><br>
+                <input type="text" name="SGOTAST_UL" placeholder="e.g. 45" required>
+            </div>
+
+            <div class="form-group">
+                <label>Packed Cell Volume (PCV):</label><br>
+                <input type="text" name="PCV_" placeholder="e.g. 38" required>
+            </div>
+
+            <div class="form-group">
+                <label>Total WBC Count:</label><br>
+                <input type="text" name="Total_Count" placeholder="e.g. 6000" required>
+            </div>
+
+            <div class="form-group">
+                <label>Albumin (g/dl):</label><br>
+                <input type="text" name="Albumin_gdl" placeholder="e.g. 3.5" required>
+            </div>
+
+            <div class="form-group">
+                <label>Indirect Bilirubin (mg/dl):</label><br>
+                <input type="text" name="Indirect_mgdl" placeholder="e.g. 1.2" required>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <h2 style="margin-top: 20px;">Prediction: {{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+    </div>
+</body>
+</html>
